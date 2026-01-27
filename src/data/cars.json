@@ -1,0 +1,22 @@
+[
+    {
+        "id": "car-001-ford-mustang",
+        "name": "Mustang",
+        "company": "Ford"
+    },
+    {
+        "id": "car-002-chevrolet-camaro",
+        "name": "Camaro",
+        "company": "Chevrolet"
+    },
+    {
+        "id": "car-003-honda-civic",
+        "name": "Civic",
+        "company": "Honda"
+    },
+    {
+        "id": "car-004-toyota-corolla",
+        "name": "Corolla",
+        "company": "Toyota"
+    }
+]
