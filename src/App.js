@@ -1,64 +1,106 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+// import Invitation from './invitation/invitation';
+import ConditionalSection from './sections/conditional';
+
+// function Hello (props) {
+//   return <h1>{ props.title }</h1>;
+// }
+// Lo mismo pero con arrow function
+// const Hello = (props) => <h1>{ props.title }</h1>;
+//Lo mismo pero con clase de EMCAScript 6
+// class Hello extends Component {
+//   render() {
+//     return <h1>{ this.props.title }</h1>;
+//   }
+// }
+
+// class Text extends Component {
+//   render() {
+//     const { 
+//       arrayOfNumbers, 
+//       multiply, 
+//       objectWithInfo,
+//       title
+//     } = this.props;
+//     const mappedNumbers = arrayOfNumbers.map(num => multiply(num)).join(', ');
+//     return (
+//     <div>
+//       {title}
+//       <p>{mappedNumbers}</p>
+//       <p>{objectWithInfo.key}</p>
+//       <p>{objectWithInfo.key2}</p>
+//       {/* <p>{text}</p>
+//       <p>{number}</p> */}
+//     </div>
+//     );
+//   }
+// }
+
+class Title extends Component {
+  render() {
+    return <h1>{this.props.text}</h1>;
+  }
+}
+
+Title.defaultProps = {
+  text: 'Este es el titulo por defecto'
+}
+
+class Contador extends Component {
+  constructor(props) {
+    super(props);
+    setInterval(() => {
+      this.setState({
+        contador: this.state.contador + 1
+      });
+    }, 1000);
+  }
+  state = {
+    contador: this.props.contadorInicial
+  };
+
+  render() {
+    return (
+      <ContadorNumero numero={this.state.contador} />
+    );
+  }
+}
+
+Contador.defaultProps = {
+  contadorInicial: 0
+}
+
+class ContadorNumero extends Component {
+  render() {
+    return (
+      <span>Propagacion de state a ContadorNumero: {this.props.numero}</span>
+    );
+  }
+}
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: '1fr 1fr', 
-            gap: '40px',
-            alignItems: 'center',
-            justifyItems: 'center',
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}>
-            <div>
+        {/* <Invitation /> */}
+        {/* <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1>Hola mundo!</h1>
-              <h3>Vamos a aprender React</h3>
-              <p>Hola mundo, estoy aprendiendo React</p>
-              <strong>Y lo estoy disfrutando</strong>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <img src='https://animesweet.com/wp-content/uploads/2022/12/kimetsu-no-yaiba-1-scaled.jpg' alt='KNYLogo' style={{ 
-                width: '500px',
-                height: '300px'
-              }}></img>
-              <table style={{ 
-                backgroundColor: 'white', 
-                borderRadius: '10px', 
-                padding: '20px', 
-                marginTop: '20px', 
-                color: 'black',
-                borderCollapse: 'collapse',
-                width: '300px'
-              }}>
-                <thead>Kimetsu No Yaiba Characters</thead>
-                <tbody>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '12px' }}>Tanjiro Kamado</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '12px' }}>Nezuko Kamado</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '12px' }}>Zenitsu Agatsuma</td>
-                  </tr>
-                  <tr style={{ borderBottom: '1px solid #ddd' }}>
-                    <td style={{ padding: '12px' }}>Inosuke Hashibira</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '12px' }}>Kanao Tsuyuri</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </header>
+              <Hello title="Welcome to React" />
+              <Text 
+                arrayOfNumbers={[1,2,3,4,5]}
+                isActivated
+                multiply={(number)=> number * 3}
+                number={123}
+                objectWithInfo={{ key: 'value', key2: 'other value' }}
+                text="Texto en string" 
+                title={<h1>Este es el titulo</h1>}/>
+        </header> */}
+        {/* <Title text="Otro valor"/> */}
+        {/* <p>Primer componente con state</p>
+        <Contador contadorInicial={30} /> */}
+        <ConditionalSection />
       </div>
     );
   }  
